@@ -17,7 +17,7 @@
             v-for="(tab, index) in tabs"
             :key="index"
             @click="id = tab.id"
-            :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 hover:bg-light-blue rounded-full mr-auto mb-3 ${
+            :class="`focus:outline-none hover:text-blue flex items-center py-1 px-4 hover:bg-light-blue rounded-full mr-auto mb-2 ${
               id === tab.id ? 'text-blue' : ''
             }`"
           >
@@ -35,14 +35,14 @@
           Tweet
         </button>
       </div>
-      <!-- BUTTON TWEET -->
-      <div class="w-full">
+      <!-- BUTTON TWEET SECTION-->
+      <div class="w-full relative mt-16">
         <button
-          class="flex items-center w-full hover:bg-lightest rounded-full p-2"
+          class="flex items-center w-full hover:bg-lightblue focus:outline-none rounded-full p-2"
         >
           <img
-            src="img/profile.png"
-            class="w-12 h-12 rounded-full border border-lighter"
+            src="img/profile.jpg"
+            class="w-10 h-10 rounded-full border border-lighter"
           />
           <div class="ml-4 text-left">
             <p class="text-sm font-bold leading-tight">Daffa Zaky</p>
@@ -50,7 +50,26 @@
           </div>
           <i class="fas fa-angle-down ml-auto text-lg"></i>
         </button>
+        <!-- NEW -->
+        <div
+          class="absolute bottom-0 right-0 w-64 rounded-lg shadow-md border-lightest bg-white mb-16"
+        >
+          <button
+            class="flex items-center w-full hover:bg-lightblue focus:outline-none rounded-lg p-2"
+          >
+            <img
+              src="img/profile.jpg"
+              class="w-10 h-10 rounded-full border border-lighter"
+            />
+            <div class="ml-4 text-left">
+              <p class="text-sm font-bold leading-tight">Daffa Zaky</p>
+              <p class="text-sm leading-tight">@daffaz</p>
+            </div>
+            <i class="fas fa-check ml-auto text-blue"></i>
+          </button>
+        </div>
       </div>
+      <!-- END OF BUTTON TWEET SECTION -->
     </div>
   </div>
 </template>
