@@ -51,7 +51,7 @@
           />
           <div class="ml-4 text-left hidden lg:block">
             <p class="text-sm font-bold leading-tight">Daffa Zaky</p>
-            <p class="text-sm leading-tight">@daffaz</p>
+            <p class="text-sm leading-tight text-dark">@daffaz</p>
           </div>
           <i class="fas fa-angle-down ml-auto text-lg hidden lg:block"></i>
         </button>
@@ -92,9 +92,35 @@
       <!-- END OF BUTTON TWEET SECTION -->
     </div>
     <!-- TWEETS -->
-    <div class="w-1/2 h-full border">TWEETS</div>
+    <div class="w-1/2 h-full overflow-y-auto">
+      <div
+        class="px-5 py-3 border-b border-lighter flex items-center justify-between"
+      >
+        <h1 class="text-xl font-bold">Home</h1>
+        <i class="far fa-star text-xl text-blue"></i>
+      </div>
+      <div class="px-5 py-3 border-b-8 border-lighter flex">
+        <div>
+          <img
+            src="img/profile.jpg"
+            class="w-12 h-12 rounded-full border border-lighter"
+          />
+        </div>
+        <form action="" class="w-full px-4 relative">
+          <textarea
+            placeholder="What's up"
+            class="w-full focus:outline-none"
+          ></textarea>
+          <div class="flex items-center">
+            <i class="text-lg text-blue mx-6"></i>
+          </div>
+        </form>
+      </div>
+    </div>
     <!-- TRENDING -->
-    <div class="w-1/3 h-full border-l py-2 px-6 overflow-y-auto relative">
+    <div
+      class="md:block hidden w-1/3 h-full border-l py-2 px-6 overflow-y-auto relative"
+    >
       <!-- TRENDING -->
       <input
         class="rounded-full w-full p-2 pl-12 bg-lighter text-sm focus:outline-none text-gray-600"
@@ -104,6 +130,67 @@
       <i
         class="fas fa-search absolute left-0 top-0 mt-4 ml-12 text-sm text-light"
       ></i>
+      <!-- TRENDS -->
+      <div class="mt-3 w-full rounded-lg border bg-lightest">
+        <div class="flex items-center p-3 justify-between">
+          <p class="text-lg font-bold">Trends for you</p>
+          <i class="fas fa-cog text-blue text-lg"></i>
+        </div>
+        <button
+          v-for="trend in trending"
+          :key="trend.id"
+          class="w-full flex justify-between hover:bg-lighter p-3 border-t border-lighter"
+        >
+          <div>
+            <p class="text-sm text-left leading-tight text-dark">
+              {{ trend.top }}
+            </p>
+            <p class="font-bold text-left leading-tight">
+              {{ trend.title }}
+            </p>
+            <p class="text-left leading-tight text-dark">{{ trend.bottom }}</p>
+          </div>
+          <i class="fas fa-angle-down text-lg"></i>
+        </button>
+        <button
+          class="text-blue p-3 text-left w-full hover:bg-lighter border-t border-lighter"
+        >
+          <a href="#">Show more</a>
+        </button>
+      </div>
+      <!-- SUGGESTION -->
+      <div class="mt-5 w-full rounded-lg border bg-lightest">
+        <div class="p-3">
+          <p class="text-lg font-bold">Who to follow</p>
+        </div>
+        <button
+          v-for="friend in friends"
+          :key="friend.id"
+          class="w-full flex hover:bg-lighter p-3 border-t border-lighter"
+        >
+          <img
+            :src="'img/' + friend.src"
+            class="w-12 h-12 rounded-full border border-lighter"
+          />
+          <div class="hidden lg:block ml-4 text-left">
+            <p class="text-sm font-bold leading-tight">
+              {{ friend.name }}
+            </p>
+            <p class="text-sm leading-tight">{{ friend.handle }}</p>
+          </div>
+          <button
+            class="ml-auto border text-sm py-1 px-4 rounded-full border-blue text-blue"
+          >
+            Follow
+          </button>
+        </button>
+        <!-- SHOW MORE TEXT -->
+        <button
+          class="text-blue p-3 text-left w-full hover:bg-lighter border-t border-lighter"
+        >
+          <a href="#">Show more</a>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -135,6 +222,11 @@ export default {
         { top: "Pop", title: "Blue Ivy", bottom: "40k tweets" },
         { top: "Trending in US", title: "Denim Day", bottom: "40k tweets" },
         { top: "Trending", title: "When Beyonce", bottom: "25.4k tweets" },
+      ],
+      friends: [
+        { src: "elon.jpg", name: "Elon Musk", handle: "@teslaBoy" },
+        { src: "monk.jpg", name: "Adrian Monk", handle: "@detective:)" },
+        { src: "kevin.jpg", name: "Kevin Hart", handle: "@miniRock" },
       ],
     };
   },
