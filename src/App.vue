@@ -112,8 +112,12 @@
             class="w-full focus:outline-none"
           ></textarea>
           <div class="flex items-center">
-            <i class="text-lg text-blue mx-6"></i>
+            <i class="text-lg text-blue mr-4 far fa-image"></i>
+            <i class="text-lg text-blue mr-4 fas fa-film"></i>
+            <i class="text-lg text-blue mr-4 far fa-chart-bar"></i>
+            <i class="text-lg text-blue mr-4 far fa-smile"></i>
           </div>
+          <button class="h-10 px-4 text-white font-semibold bg-blue hover:bg-darkblue focus:outline-none rounded-full absolute right-0 bottom-0">Tweet</button>
         </form>
       </div>
     </div>
@@ -145,7 +149,7 @@
             <p class="text-sm text-left leading-tight text-dark">
               {{ trend.top }}
             </p>
-            <p class="font-bold text-left leading-tight">
+            <p class="font-bold text-left leading-tight my-1">
               {{ trend.title }}
             </p>
             <p class="text-left leading-tight text-dark">{{ trend.bottom }}</p>
